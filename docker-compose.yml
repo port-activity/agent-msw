@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  agent-msw:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stop_signal: SIGINT
+    volumes:
+      - ./src:/src:rw,consistent
+      - ./vendor:/vendor:rw,consistent
+    container_name: spia-agent-msw
+    env_file: .env
+
+volumes:
+  src:
+  vendor:
