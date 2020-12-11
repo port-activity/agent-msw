@@ -98,6 +98,7 @@ class Msw
         foreach ($rawResults as $rawResult) {
             $timestamp = [];
             $payload = [];
+            $payload["source"] = "msw";
 
             $timestamp["imo"] = 0;
             foreach ($this->config["parameter_mappings"] as $in => $out) {

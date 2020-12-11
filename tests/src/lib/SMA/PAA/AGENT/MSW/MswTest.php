@@ -21,6 +21,11 @@ final class MswTest extends TestCase
         $fakeCurl->executeReturn = $serverData;
         $msw->execute($apiConfig, array("SEGVX", "SEKAS"));
 
+        /* file_put_contents(
+            "tests/data/ValidParsedData.json",
+            json_encode($fakeResultPoster->results, JSON_PRETTY_PRINT)
+        ); */
+
         $this->assertEquals($fakeResultPoster->results, json_decode($posterData, true));
     }
 }
